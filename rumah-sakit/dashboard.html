@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Data Pasien</h1>
+</header>
+
+<section>
+
+<h2>Form Pendaftaran</h2>
+<form id="formPasien">
+    <label>Nama:</label><br>
+    <input type="text" id="nama" required><br><br>
+
+    <label>Umur:</label><br>
+    <input type="number" id="umur" required><br><br>
+
+    <button type="submit">Daftar</button>
+</form>
+
+<h2>Daftar Pasien</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Umur</th>
+        </tr>
+    </thead>
+    <tbody id="tabelPasien">
+        <tr>
+            <td>1</td>
+            <td>Andi</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Budi</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table>
+
+</section>
+
+<footer>
+    <p>&copy; 2026 Rumah Sakit</p>
+</footer>
+
+<script>
+let no = 3; // karena sudah ada 2 data awal
+
+document.getElementById("formPasien").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let umur = document.getElementById("umur").value;
+
+    let tabel = document.getElementById("tabelPasien");
+
+    let row = tabel.insertRow();
+    row.insertCell(0).innerHTML = no++;
+    row.insertCell(1).innerHTML = nama;
+    row.insertCell(2).innerHTML = umur;
+
+    document.getElementById("formPasien").reset();
+});
+</script>
+
+</body>
+</html>
